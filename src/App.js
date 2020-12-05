@@ -15,7 +15,7 @@ function App() {
   useEffect(() => {
     async function fetchData() {
       setLoading(true);
-      const res = await axios.get('https://pokeapi.co/api/v2/pokemon');
+      const res = await axios.get('https://pokeapi.co/api/v2/pokemon?limit=151');
       setPokemons(res.data.results);
       setLoading(false);
     }
@@ -25,7 +25,7 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      <Dashboard pokemons = {pokemons}/>
+      <Dashboard pokemons = {pokemons} loading = {loading} />
     </div>
   );
 }

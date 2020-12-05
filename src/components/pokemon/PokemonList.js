@@ -7,7 +7,8 @@ export default function PokemonList({pokemons}) {
         <div className="row">
             {
                 pokemons.map(pokemon => (
-                    <PokemonCard pokemon={pokemon} />
+                    <PokemonCard pokemon={pokemon}
+                                 key = {pokemon.name} />
                 ))
             }
         </div>
