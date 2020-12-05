@@ -3,6 +3,7 @@ import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+import bgImage from './images/pattern.png';
 
 import Navbar from './components/layout/Navbar';
 import Dashboard from './components/layout/Dashboard';
@@ -23,9 +24,11 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
-      <Navbar />
-      <Dashboard pokemons = {pokemons} loading = {loading} />
+    <div className="topDiv" style={{background : `url(${bgImage})`}}>
+      <div className="App">
+        <Navbar />
+        <Dashboard pokemons = {pokemons} loading = {loading} />
+      </div>
     </div>
   );
 }
