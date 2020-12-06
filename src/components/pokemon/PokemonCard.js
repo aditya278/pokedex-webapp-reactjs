@@ -16,6 +16,9 @@ const Card = styled.div`
     &:hover {
         box-shadow: 0 14px 28px rgba(0,0,0,0.65), 0 10px 10px rgba(0,0,0,0.5);
     }
+    -mox-user-select:none;
+    -website-user-select:none;
+    -o-user-select:none;
 `;
 
 export default function PokemonCard({pokemon}) {
