@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 import styled from 'styled-components';
 
@@ -21,6 +22,18 @@ const Card = styled.div`
     -o-user-select:none;
 `;
 
+const StyledLink = styled(Link)`
+    text-decoration : none;
+    color : black;
+    &:focus,
+    &:hover,
+    &:visited,
+    &:link,
+    &active {
+        text-decoration : none
+    }
+`;
+
 export default function PokemonCard({pokemon}) {
 
     const {name, url} = pokemon;
@@ -41,29 +54,31 @@ export default function PokemonCard({pokemon}) {
 
     return (
         <div className="col-md-3 col-sm-6 mb-5">
-            <Card className="card">
-                <h5 className="card-header">{pokemonIndex}</h5>
-                {
-                    imgLoading ? (
-                        <img
-                            src={pokeballSpinner}
-                            style={{width: '5em', height: '5em'}}
-                            className="card-img-top rounded mx-auto mt-2"
-                            alt="loading"
-                        />
-                    ) : null
-                }
-                <Sprite className="card-img-top rounded mx-auto mt-2"
-                        onLoad = {() => updateLoading(false)}
-                        src={pokeImgUrl}
-                        style={
-                            imgLoading ? null : {display : 'block'}
-                        }>
-                </Sprite>
-                <div className="card-body mx-auto">
-                    <h6 className="card-title">{name.toLowerCase().split(" ").map(letter => letter.charAt(0).toUpperCase() + letter.substring(1)).join(' ')}</h6>
-                </div>
-            </Card>
+            <StyledLink to={`pokemon/${pokemonIndex}`}>
+                <Card className="card">
+                    <h5 className="card-header">{pokemonIndex}</h5>
+                    {
+                        imgLoading ? (
+                            <img
+                                src={pokeballSpinner}
+                                style={{width: '5em', height: '5em'}}
+                                className="card-img-top rounded mx-auto mt-2"
+                                alt="loading"
+                            />
+                        ) : null
+                    }
+                    <Sprite className="card-img-top rounded mx-auto mt-2"
+                            onLoad = {() => updateLoading(false)}
+                            src={pokeImgUrl}
+                            style={
+                                imgLoading ? null : {display : 'block'}
+                            }>
+                    </Sprite>
+                    <div className="card-body mx-auto">
+                        <h6 className="card-title">{name.toLowerCase().split(" ").map(letter => letter.charAt(0).toUpperCase() + letter.substring(1)).join(' ')}</h6>
+                    </div>
+                </Card>
+            </StyledLink>
         </div>
     )
 }
