@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/aria-role */
 import React, { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
 
@@ -50,7 +51,7 @@ export default function Pokemon({
     if (!pokemonDetails) return <Loading />;
 
     return (
-        <div className="col">
+        <div className="col" >
             <Link to="/">
                 <button className="btn btn-primary mb-4">Go to Home</button>
             </Link>
