@@ -152,7 +152,7 @@ function App() {
 
   const searchPokemon = async (pokemonName) => {
     setLoading(true);
-    const url = `https://pokeapi.co/api/v2/pokemon/${pokemonName}`;
+    const url = `https://pokeapi.co/api/v2/pokemon/${pokemonName.toLowerCase()}`;
     const res = await axios.get(url);
     setPokemons(res.data.forms);
     setLoading(false);
