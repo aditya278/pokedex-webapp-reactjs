@@ -150,11 +150,19 @@ function App() {
     setLoading(false);
   };
 
+  const searchPokemon = async (pokemonName) => {
+    setLoading(true);
+    const url = `https://pokeapi.co/api/v2/pokemon/${pokemonName}`;
+    const res = await axios.get(url);
+    setPokemons(res.data.forms);
+    setLoading(false);
+  }
+
   return (
     <Router>
       <div className="topDiv" style={{ background: `url(${bgImage})` }}>
         <div className="App">
-          <Navbar />
+          <Navbar searchPokemon={searchPokemon} />
           <Switch>
             <Route
               exact
