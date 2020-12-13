@@ -4,7 +4,7 @@ A Pokedex having information about the original 151 Pokemons, built with ReactJs
 
 Visit the Project here: https://aditya278.github.io/pokedex-webapp-reactjs/
 
-## Project Screen Shot(s)
+## Project Screen Shots
 
 ![Homepage](https://dev-to-uploads.s3.amazonaws.com/i/9dl3p6oa16wx9o2mffht.PNG)
 
